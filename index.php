@@ -8,6 +8,7 @@ define('CONF_FILE', SITE_PATH . 'config\\config.php');
 
 require(SITE_PATH . 'lib\\confClass.php');
 require(SITE_PATH . 'lib\\databaseConnection.php');
+require(SITE_PATH . 'lib\\sessionClass.php');
 
 
 require(SITE_PATH . 'application\\request.php');
@@ -17,6 +18,14 @@ require(SITE_PATH . 'application\\model.php');
 require(SITE_PATH . 'application\\load.php');
 require(SITE_PATH . 'application\\registry.php');
 require(SITE_PATH . 'controllers\\errorController.php');
+
+$sess = new session;
+
+if(!$sess->checkAuth()) {
+    $login = new userController;
+    $login->login();
+}
+
 
 try {
    router::route(new request);

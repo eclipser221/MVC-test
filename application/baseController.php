@@ -7,8 +7,9 @@ abstract class baseController {
     protected $load;
     
     public function __construct() {
+        
         $this->_registry = Registry::getInstance();
-        $this->load = new load();
+        $this->load = new load();        
     }
     abstract public function index();
     

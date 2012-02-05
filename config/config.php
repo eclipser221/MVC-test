@@ -6,4 +6,8 @@ $conf['database']['host'] = 'localhost';
 $conf['database']['dbName'] = '';
 
 
+$conf['session']['key'] = 'userID';
+$conf['session']['value'] = 'userid';
+ 
+
 ?>

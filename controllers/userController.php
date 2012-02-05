@@ -1,10 +1,9 @@
 <?php 
 
-class user2Controller extends baseController {
+class userController extends baseController {
     
     private $username;
     private $password;
-    private $connection;
     
     public function __construct() {
         parent::__construct();
@@ -16,7 +15,7 @@ class user2Controller extends baseController {
     
     public function login() {
         $vars['title'] = 'Please Login';
-        $vars['action'] = '/user2/process';
+        $vars['action'] = '/user/process';
         $this->load->view('login', $vars);
     }
     
@@ -27,7 +26,7 @@ class user2Controller extends baseController {
             $this->username = $_POST['username'];
             $this->password = md5($_POST['password'] . 'lolol');
             $this->load->model('user');
-            $this->user2->authUser($this->username, $this->password);
+            $this->user->authUser($this->username, $this->password);
         } else {
             $this->login();
         }
